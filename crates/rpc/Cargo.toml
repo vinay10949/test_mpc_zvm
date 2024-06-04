@@ -1,0 +1,13 @@
+[package]
+name = "rpc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+jsonrpsee = { workspace = true }
+async-trait = { workspace = true }
+messages = { workspace = true }
+actors = { workspace = true }
+ractor = { workspace = true }
+tokio = { workspace = true }
+tx-utils = { workspace = true }

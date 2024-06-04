@@ -1,0 +1,28 @@
+[package]
+name = "actors"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ractor = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+async-trait = { workspace = true }
+network = { workspace = true }
+libp2p = { workspace = true }
+messages = { workspace = true }
+log = { workspace = true }
+ractor_cluster = { workspace = true }
+hex = { workspace = true }
+ice-frost = { workspace =true }
+rand = { workspace =true }
+ark-serialize = { workspace =true }
+tx-utils ={ workspace = true  }
+methods ={ workspace = true  }
+risc0-zkvm ={ workspace = true  }
+serde_json = { workspace = true }
+sha2= { workspace =true }
+
+

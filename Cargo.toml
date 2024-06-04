@@ -1,0 +1,73 @@
+[workspace]
+members = [
+  "crates/actors",
+  "crates/node",
+  "crates/messages",
+  "crates/network",
+  "crates/rpc",
+  "crates/methods",
+  "crates/host",
+  "crates/tx-utils"
+]
+
+resolver = "2"
+
+
+[workspace.dependencies]
+tokio = { version = "1.37.0", features = ["full"] }
+ractor = { version = "0.9.7", features = ["async-std"] }
+log = "0.4.21"
+serde = { version = "1.0.198", features = ["derive"] }
+thiserror = "1.0.59"
+async-trait = "0.1.80"
+libp2p = { version = "0.53.2", features = [
+  "request-response",
+  "cbor",
+  "serde",
+  "kad",
+  "gossipsub",
+  "tokio",
+  "noise",
+  "macros",
+  "tcp",
+  "yamux",
+  "quic",
+  "secp256k1",
+  "relay",
+] }
+clap = { version = "4.5.4", features = ["derive","cargo"] }
+rand = "0.8.5"
+serde_json = "1.0.116"
+ractor_cluster = "0.9.3"
+network = { path = "crates/network" }
+messages = { path = "crates/messages" }
+actors = { path = "crates/actors" }
+rpc = { path = "crates/rpc" }
+host = { path = "crates/host" }
+tx-utils = { path = "crates/tx-utils" }
+methods = { path = "crates/methods" }
+hex = "0.4.3"
+rsa = "0.9.6"
+k256 = { version = "0.13.1", features = [
+  "hash2curve",
+  "arithmetic",
+  "ecdh",
+  "serde",
+] }
+jsonrpsee = { version = "0.22.5", features = [
+  "macros",
+  "client-core",
+  "server-core",
+  "server",
+  "http-client",
+] }
+ethers = "2.0.14"
+lru_time_cache = "0.11.11"
+uuid = { version ="1.8.0" ,features = ["v4"] }
+redis = "0.25.3"
+num-bigint = { version = "0.4", features = ["serde", "rand"] }
+dotenv = "0.15.0"
+ice-frost = {path ="crates/ice-frost"}
+ark-serialize = { version = "0.4", default-features = false, features = ["derive"] }
+risc0-zkvm = { version = "0.21.0" }
+sha2 = "0.10.2"

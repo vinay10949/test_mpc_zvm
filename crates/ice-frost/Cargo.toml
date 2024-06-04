@@ -1,0 +1,57 @@
+[package]
+name = "ice-frost"
+version = "0.1.0"
+authors = [
+    "zk Foundation Developers <dev@zkfoundation.io>"
+]
+edition = "2021"
+description = "Modular Static ICE-FROST: Identifiable Cheating Entity Flexible Round-Optimised Threshold Signature"
+readme = "README.md"
+license = "MIT/Apache-2"
+repository = "https://github.com/topos-network/ice-frost"
+homepage = "https://github.com/topos-network/ice-frost"
+keywords = ["cryptography", "frost", "ice-frost", "signature", "threshold-signature"]
+categories = ["cryptography"]
+exclude = [ ".gitignore" ]
+
+[package.metadata.docs.rs]
+rustdoc-args = ["--html-in-header", "/opt/rustwide/workdir/docs/assets/rustdoc-include-katex-header.html"]
+
+[dependencies]
+aead = { version = "0.5", default-features = false, features = ["alloc", "getrandom"]}
+ark-secp256k1 = { version = "0.4", default-features = false }
+ark-ff = { version = "0.4", default-features = false }
+ark-ec = { version = "0.4", default-features = false }
+ark-serialize = { version = "0.4", default-features = false, features = ["derive"] }
+digest = { version = "0.10", default-features = false, features = ["alloc"] }
+rand = { version = "0.8", default-features = false, features = ["alloc", "getrandom", "libc"] }
+sha2 = { version = "0.10", default-features = false }
+aes-gcm = { version = "0.10", default-features = false, features = ["aes", "alloc", "getrandom", "zeroize"] }
+hkdf = { version = "0.12", default-features = false }
+zeroize = { version = "1", default-features = false, features = ["alloc", "zeroize_derive"] }
+
+# Include the "js" feature for wasm32-unknown-unknown
+[target.'cfg(target_family = "wasm")'.dependencies.getrandom]
+version = "0.2"
+default-features = false
+features = ["js"]
+
+[target.'cfg(not(target_family = "wasm"))'.dependencies.getrandom]
+version = "0.2.0"
+default-features = false
+
+[dev-dependencies]
+criterion = { version = "0.5" }
+
+[[bench]]
+name = "dkg"
+harness = false
+
+[[bench]]
+name = "sign"
+harness = false
+
+[features]
+default = ["std"]
+asm = ["ark-ff/asm", "std"]
+std = ["ark-ec/std", "ark-ff/std", "ark-serialize/std"]

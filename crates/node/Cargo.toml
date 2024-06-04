@@ -1,0 +1,22 @@
+[package]
+name = "node"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { workspace = true }
+log = { workspace = true }
+clap = { workspace = true }
+network = { workspace = true }
+messages = { workspace = true }
+actors = { workspace = true }
+ractor = { workspace = true }
+jsonrpsee = { workspace =true }
+rpc = { workspace = true }
+libp2p = { workspace = true }
+
+[[bin]]
+name = "mpc_node"
+path = "src/main.rs"
